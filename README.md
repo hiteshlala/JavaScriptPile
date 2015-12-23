@@ -1,4 +1,4 @@
-JavaScript Pile
+#JavaScript Pile
 
 A collection of functions written for practice. I tried to separate some 
 functions which stand alone as a project and could potentially be useful
