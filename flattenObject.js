@@ -29,7 +29,7 @@ var testObj2 = {
 // helper function
 var extend = function(obj1, obj2) {
   for(var key in obj2) obj1[key] = obj2[key];
-  return obj1
+  return obj1;
 }
 
 var flattenObj = function(obj, parent, result) {
