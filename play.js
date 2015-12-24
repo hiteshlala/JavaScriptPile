@@ -614,5 +614,22 @@ var deepEquals = function(apple, orange){
 
 /**************************************************/
 
+var array = [12,5,36,8,9,10];
+
+var findmin = function(arry) {
+  if(arry.length === 0) {
+    return Infinity;
+  } else {
+    var getnext = findmin(arry.slice(1)) 
+    if(arry[0] < getnext) { 
+      return arry[0];
+    } else {
+      return getnext;
+    }
+  } 
+};
+
+// console.log(findmin(array, 6));
 
 /**************************************************/
+
