@@ -620,11 +620,8 @@ var findmin = function(arry) {
   if(arry.length === 0) {
     return Infinity;
   } else {
-    var getnext = findmin(arry.slice(1)) 
-    if(arry[0] < getnext) { 
-      return arry[0];
-    } else {
-      return getnext;
+    var getnext = findmin(arry.slice(1));
+    return arry[0] < getnext ? arry[0] : getnext;
     }
   } 
 };
@@ -633,3 +630,4 @@ var findmin = function(arry) {
 
 /**************************************************/
 
+// just testing aliasing in os x
