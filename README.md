@@ -29,4 +29,7 @@ recursively solves the Towers of Hanoi porblem.  Have a funcion that returns a t
 ###flattenObject.js
 a function that takes a hierarchical map of properties and converts it to a single, flattened map, with the different levels separated by a forward slash ('/').
 
+###romanNumeral.js
+Roman Numeral Converter
+two functions to convert a given number into a roman numeral. One is iterative the other recursive.  Iterative makes more intuitive sense to me.
 
