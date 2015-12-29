@@ -33,3 +33,5 @@ a function that takes a hierarchical map of properties and converts it to a sing
 Roman Numeral Converter
 two functions to convert a given number into a roman numeral. One is iterative the other recursive.  Iterative makes more intuitive sense to me.
 
+###deepEquals.js
+a function that, given two objects, returns whether or not the two are deeply equivalent--meaning the structure of the two objects is the same, and so is the structure of each of their corresponding descendants.
