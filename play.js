@@ -704,8 +704,9 @@ var toRomanRecursive = function(num) {
   return recurse(num);
 };
 
-console.log(toRoman(798)); // DCCXCVIII
-console.log(toRomanRecursive(798));
+// console.log(toRoman(1973)); // DCCXCVIII
+// console.log(toRomanRecursive(2015));
+
 /**************************************************/
 
 
