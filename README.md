@@ -35,3 +35,6 @@ two functions to convert a given number into a roman numeral. One is iterative t
 
 ###deepEquals.js
 a function that, given two objects, returns whether or not the two are deeply equivalent--meaning the structure of the two objects is the same, and so is the structure of each of their corresponding descendants.
+
+###anagrams.js
+a function that given a string returns all anagrams.  Basically all permutaions of the string are retruned in an array.
