@@ -38,3 +38,6 @@ a function that, given two objects, returns whether or not the two are deeply eq
 
 ###anagrams.js
 a function that given a string returns all anagrams.  Basically all permutaions of the string are retruned in an array.
+
+###binarySearch.js
+given an ordered list and an item return the index of the item in that list. Do this recursively.
