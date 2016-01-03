@@ -41,3 +41,6 @@ a function that given a string returns all anagrams.  Basically all permutaions 
 
 ###binarySearch.js
 given an ordered list and an item return the index of the item in that list. Do this recursively.
+
+###isPrime.js
+a function that determines if a number is prime.  1 is treated as not prime.
