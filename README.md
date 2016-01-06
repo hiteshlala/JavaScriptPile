@@ -50,3 +50,6 @@ Find the smallest common multiple of the provided parameters that can be evenly 
 
 ###tagCount.js
 a function that recursively checks all tags of the document and counts the number of times a given tag appears. The tag and DOM to be checked are inputs.
+
+###recursiveMultiply.js
+a recursive function to multiply two positive integers without using the * operator.  You can use addition, subtraction, and bit shifting, but you should minimize the number of those operations.
