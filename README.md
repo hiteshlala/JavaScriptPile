@@ -53,3 +53,6 @@ a function that recursively checks all tags of the document and counts the numbe
 
 ###recursiveMultiply.js
 a recursive function to multiply two positive integers without using the * operator.  You can use addition, subtraction, and bit shifting, but you should minimize the number of those operations.
+
+###makeHtmlPage.sh
+a shell script to create an html page with a script tag for testing .js files.
