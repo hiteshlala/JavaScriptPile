@@ -56,3 +56,7 @@ a recursive function to multiply two positive integers without using the * opera
 
 ###makeHtmlPage.sh
 a shell script to create an html page with a script tag for testing .js files.
+
+###fibonacci.js
+three functions to calculate fibonacci numbers.  One iterative and two recursive (one of the recursive ones has caching).  fibonacci sequence starts: 1, 1, 2, 3, 5,.... so 0th element is 1, 1st element is 1, 2nd is 2, etc found using formula f(n) = f(n-1) + f(n-2).
+
