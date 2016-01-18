@@ -1,33 +1,40 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Javascript Pile by hiteshlala</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Javascript Pile</h1>
-      <h2 class="project-tagline">Bunch of projects I worked on</h2>
-      <a href="https://github.com/hiteshlala/JavaScriptPile" class="btn">View on GitHub</a>
-      <a href="https://github.com/hiteshlala/JavaScriptPile/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/hiteshlala/JavaScriptPile/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+<html>
 
-    <section class="main-content">
-      <h1>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Javascript Pile : Bunch of projects I worked on">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Javascript Pile</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/hiteshlala/JavaScriptPile">View on GitHub</a>
+
+          <h1 id="project_title">Javascript Pile</h1>
+          <h2 id="project_tagline">Bunch of projects I worked on</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/hiteshlala/JavaScriptPile/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/hiteshlala/JavaScriptPile/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
 <a id="javascript-pile" class="anchor" href="#javascript-pile" aria-hidden="true"><span class="octicon octicon-link"></span></a>JavaScript Pile</h1>
 
-<p>A collection of functions written for practice. I tried to separate some functions which stand alone as a project and could potentially be useful at a later time to make them easier to find.</p>
-
-<h3>
-<a id="playjs" class="anchor" href="#playjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>play.js</h3>
-
-<p>a file that has a hodge podge of functions some recursion etc this one gets edited regularly. I keep adding functions</p>
+<p>A collection of functions written for practice. I tried to separate some functions which stand alone as a project and could potentially be useful at a later time to make.</p>
 
 <h3>
 <a id="permutationsjs" class="anchor" href="#permutationsjs" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/hiteshlala/JavaScriptPile/blob/master/permutations.js">permutations.js</a>
@@ -43,7 +50,143 @@
 <h3>
 <a id="recursivetreesjs" class="anchor" href="#recursivetreesjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>recursiveTrees.js</h3>
 
-<p>recursive function to create a branching tree, can adjust the number of iterations and length of the arms on initial tree</p>
+<pre><code>` 
+</code></pre>
+
+<p>//Functions and Fractals - Recursive Trees
+var recurseTree = function(iterations, height) {
+  height = height || 16;</p>
+
+<p>// these are the characters for image
+  //  o - open area, l - line part
+  var o = " ";
+  var l = "*";</p>
+
+<p>// generates an upside down Y of 
+  // height = 2 * height 
+  // width = 2 * height + 1
+  var drawY = function(height){
+    var image = [];</p>
+
+<pre><code>// constructin the I part
+for(var i = 0; i &lt; height; i++) {
+  image.push([]);
+  for(var j = 0; j &lt; height; j++) {
+    image[i].push(o);
+  }
+  image[i].push(l);
+  for(var j = 0; j &lt; height; j++) {
+    image[i].push(o);
+  }
+}
+
+// constructing the v part
+for(var i = height; i &lt; height * 2; i++) {
+  image.push([]);
+  for(var j = 0; j &lt; height * 2 - 1; j++) {
+    if(j === height * 2 - i - 1 ) image[i].push(l);
+    if(j === i ) image[i].push(l);
+    image[i].push(o);
+  }
+}
+// this line to catch a wierd edge effect
+image[height * 2 - 1].push(l);
+
+return image;
+</code></pre>
+
+<p>};</p>
+
+<p>var drawSubY =  function(height, iter) {</p>
+
+<pre><code>if(iter === 0) {
+  // base case
+  return drawY(height);
+} else {
+  // recursive case
+  var smallY = drawSubY(height/2, iter - 1);
+  var bigY = drawY(height);
+}
+
+var image = [];
+var newHeight = smallY.length + bigY.length;
+var newWidth = bigY[0].length + Math.floor(smallY[0].length / 2) * 2;
+
+var bigYi = 0;
+var bigYj = 0;
+
+var smallYi = 0;
+var samllYj1 = 0;
+var smallYj2 = 0;
+
+// are edge indices for large and small Y's
+var edge1 = Math.floor(smallY[0].length / 2);
+var edge2 = newWidth - edge1;
+var edge3 = smallY[0].length;
+var edge4 = newWidth - smallY[0].length;
+
+
+for(var i = 0; i &lt; newHeight; i++) {
+  image.push([]);
+  bigYj = 0;
+  smallYj2 = 0;
+  smallYj1 =0;
+  for(var j = 0; j &lt; newWidth; j++) {
+
+    // add large Y
+    if(i &lt; height * 2) {
+
+      if( j &lt; edge1 || j &gt;= edge2) {            
+        image[i].push(o);
+
+      } else {
+        image[i].push(bigY[bigYi][bigYj]);
+        bigYj++;
+      }
+
+    // add two little Y's
+    } else {
+      if(j &gt;= edge4 ) { 
+        image[i].push(smallY[smallYi][smallYj1]);
+        smallYj1++;
+
+      } else if ( j &lt; edge3 ) {
+        image[i].push(smallY[smallYi][smallYj2]);
+        smallYj2++;
+
+      } else {
+        image[i].push(o);
+      }
+    }
+  } // for j
+
+  bigYi++;
+  if(i &gt;= height * 2 ) smallYi++;
+} // for i
+
+return image;
+</code></pre>
+
+<p>};</p>
+
+<p>var image = drawSubY(height, iterations);</p>
+
+<p>// convert image data from an array to a string
+  var assembleImage = function(image) {
+    // first invert image data
+    image.reverse();
+    // join line arrays
+    image = image.map(function(item) {
+      return item.join("");
+    });
+    // join lines and return
+    return image.join("\n");
+  };</p>
+
+<p>return assembleImage( image );
+};
+`
+recursive function to create a branching tree, can adjust the number of iterations and length of the arms on initial tree</p>
 
 <h3>
 <a id="sierpinskijs" class="anchor" href="#sierpinskijs" aria-hidden="true"><span class="octicon octicon-link"></span></a>sierpinski.js</h3>
@@ -114,15 +257,18 @@
 <a id="fibonaccijs" class="anchor" href="#fibonaccijs" aria-hidden="true"><span class="octicon octicon-link"></span></a>fibonacci.js</h3>
 
 <p>three functions to calculate fibonacci numbers. One iterative and two recursive (one of the recursive ones has caching). fibonacci sequence starts: 1, 1, 2, 3, 5,.... so 0th element is 1, 1st element is 1, 2nd is 2, etc found using formula f(n) = f(n-1) + f(n-2).</p>
+      </section>
+    </div>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/hiteshlala/JavaScriptPile">Javascript Pile</a> is maintained by <a href="https://github.com/hiteshlala">hiteshlala</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Javascript Pile maintained by <a href="https://github.com/hiteshlala">hiteshlala</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
+    </div>
 
-    </section>
+    
 
-  
   </body>
 </html>
