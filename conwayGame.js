@@ -106,12 +106,52 @@ function genEmptyCells(m, n, r) {
     return cells;
 }
 
+function nextGen2(cells){
+    var m = cells.length;
+    var n = m > 0 ? n = cells[0].length : 0;
+    
+    var next = genEmptyCells(m, n);
+    var getValue = function(matrix, i, j) {
+        return matrix[i] && matrix[i][j] || 0;
+    };
 
-// var inmatrix = genEmptyCells(3,4,true); 
-// var result = nextGen(inmatrix);
-// result.forEach(function(item, i){
-//     console.log(i,item );    
-// });
+
+    for(var i = 0; i < m; i++) {        
+        for(var j = 0; j < n; j++) {
+            var count = 0;
+            // check eight neighbors
+            var count = getValue(cells, i-1, j-1) +
+                getValue(cells, i-1, j) +
+                getValue(cells, i-1, j+1) + 
+                getValue(cells, i, j-1) +
+                getValue(cells, i, j+1) +
+                getValue(cells, i+1, j-1) +
+                getValue(cells, i+1, j) +
+                getValue(cells, i+1, j+1);
+
+            if((count === 3) ) {
+                next[i][j] = 1;
+            } else if(count === 2 && cells[i][j] === 1) {
+                next[i][j] = 1;
+            } else {
+                next[i][j] = 0;
+            }
+        }//for(j)
+    }//for(i)
+
+    return next;
+}
+
+var inmatrix = genEmptyCells(7, 7, true);
+var result = nextGen(inmatrix);
+result.forEach(function(item, i){
+    console.log(i,item );
+});
+var result = nextGen2(inmatrix);
+result.forEach(function(item, i){
+    console.log(i,item );
+});
+
 
 // var inmatrix = genEmptyCells(3,4,true); 
 // console.log(nextGen([[]]));
